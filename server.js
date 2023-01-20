@@ -3,7 +3,6 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const notesDb = require("./db/db.json");
-const api = require("./routes/index.js");
 const noteRoutes = require("./routes/noteRoutes");
 
 // set up express as object and direct the port
