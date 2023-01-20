@@ -3,6 +3,8 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const notesDb = require("./db/db.json");
+const api = require("./routes/index.js");
+const noteRoutes = require("./routes/noteRoutes");
 
 // set up express as object and direct the port
 const app = express();
@@ -13,9 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // points to public directory
 app.use(express.static("public"));
-app.use("/, ");
+app.use("/api", noteRoutes);
 
-// view html files when paths are accessed
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
